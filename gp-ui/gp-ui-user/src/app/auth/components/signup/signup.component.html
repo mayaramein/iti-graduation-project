@@ -1,0 +1,36 @@
+<div class="fullscreen-center">
+    <div class="signup-container">
+        <h1 class="signup-title">Welcome</h1>
+        <form class="form" [formGroup]="userForm">
+            <!-- <div class="input-group success"> -->
+            <div class="input-group">
+                <label for="username">User Name</label>
+                <input formControlName="username" type="username" name="username" id="username">
+                <!-- <span class="msg">Valid username</span> -->
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input formControlName="email" type="email" name="email" id="email">
+                <!-- <span class="msg">Valid email</span> -->
+            </div>
+            <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input formControlName="phone" type="phone" name="phone" id="phone">
+                <!-- <span class="msg">Valid phone</span> -->
+            </div>
+
+            <!-- <div class="input-group error"> -->
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input formControlName="password" type="password" name="password" id="password">
+                <!-- <span class="msg">Incorrect password</span> -->
+            </div>
+            <div class="input-group">
+                <label for="Cpassword">Confirm Password</label>
+                <input formControlName="Cpassword" type="password" name="Cpassword" id="Cpassword">
+                <!-- <span class="msg">Incorrect password</span> -->
+            </div>
+            <button type="submit" [disabled]="userForm.invalid || (userForm.value.password != userForm.value.password)" class="signup-button" (click)="submit()">Signup</button>
+        </form>
+    </div>
+</div>
