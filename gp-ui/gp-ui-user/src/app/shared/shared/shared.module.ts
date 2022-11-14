@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SpinnerComponent } from '../components/spinner/spinner.component';
 import { SelectComponent } from '../components/select/select.component';
-import { CategoriesMenuComponent } from '../components/categories-menu/categories-menu.component';
 import { NotFoundComponent } from '../components/not-found/not-found.component';
 import { SharedLayoutComponent } from '../components/shared-layout/shared-layout.component';
 import { FooterComponent } from '../components/footer/footer.component';
@@ -18,7 +17,6 @@ import { ToastrModule } from 'ngx-toastr';
     FooterComponent,
     SpinnerComponent,
     SelectComponent,
-    CategoriesMenuComponent,
     NotFoundComponent,
     SharedLayoutComponent,
   ],
@@ -34,7 +32,6 @@ import { ToastrModule } from 'ngx-toastr';
     FooterComponent,
     SpinnerComponent,
     SelectComponent,
-    CategoriesMenuComponent,
     NotFoundComponent,
     SharedLayoutComponent,
     MaterialModule,
