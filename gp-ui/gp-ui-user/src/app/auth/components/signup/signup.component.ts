@@ -58,12 +58,16 @@ export class SignupComponent implements OnInit {
       })
     }else {
       this.service.createUser(model).subscribe(res => {
+        this.service.user.next(res)
         this.toastr.success("Account created successfully", "" , {
           disableTimeOut: false,
           titleClass: "toastr_title",
           messageClass: "toastr_message",
           timeOut:1000,
           closeButton: true,
+        })
+        this.service.login(model).subscribe(res => {
+          this.service.user.next(res)
         })
         this.router.navigate(['home']);
       });
