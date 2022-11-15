@@ -66,10 +66,7 @@ export class SignupComponent implements OnInit {
           timeOut:1000,
           closeButton: true,
         })
-        this.service.login(model).subscribe(res => {
-          this.service.user.next(res)
-        })
-        this.router.navigate(['home']);
+        this.router.navigate(['signin']);
       });
     }
     

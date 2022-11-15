@@ -24,6 +24,7 @@ const routes: Routes = [
     {path:'ads', component:AllAdsComponent},
     {path:'ads/details', component:AdDetailsComponent},
     {path:'admin-dashboard', component:AdminComponent},
+    {path:'signin', component:SigninComponent},
     
   ]},
   {path:'login', component:SigninComponent},

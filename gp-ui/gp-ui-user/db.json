@@ -5,30 +5,6 @@
       "email": "admin@gmail.com",
       "password": "0000",
       "id": 0
-    },
-    {
-      "username": "mm",
-      "email": "mm@gmail.com",
-      "password": "11",
-      "id": 1
-    },
-    {
-      "username": "mmm",
-      "email": "mmm@gmial.com",
-      "password": "22",
-      "id": 2
-    },
-    {
-      "username": "mmn",
-      "email": "mmn@mfd.com",
-      "password": "1111",
-      "id": 3
-    },
-    {
-      "username": "aa",
-      "email": "aa@mail.com",
-      "password": "22",
-      "id": 4
     }
   ],
   "login": [
