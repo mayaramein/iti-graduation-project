@@ -1,0 +1,52 @@
+<div class="fullscreen-center">
+  <div class="container">
+    <form [formGroup]="addCompanyForm" class="m-3" (ngSubmit)="submit()">
+      <div class="mb-3">
+        <label for="fName" class="form-label">Name</label>
+        <input type="text" formControlName="name" class="form-control" id="fName" name="userFname" [class.is-invalid]="name?.invalid" [class.is-valid]="name?.valid">
+        <div class="alert alert-warning" [hidden]="name?.valid || name?.untouched">
+          <small *ngIf="name?.errors?.['required']">
+            name is required
+          </small>
+          <small *ngIf="name?.errors?.['pattern']">
+            name must be 3 letters at least, <b>{{name?.errors?.['pattern'].actualValue}}</b> doesn't match.
+          </small>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <div class="form-group">
+          <label for="image">File:</label>
+          <input 
+              formControlName="file"
+              id="image" 
+              type="file" 
+              class="form-control"
+              (change)="onFileChange($event)">
+      </div>
+        
+      <img [src]="image" class="img-fluid m-3" alt="company-img" *ngIf="image" style="height: 150px; width:150px">
+          
+      </div>
+  
+      <div class="mb-3">
+        <label for="phoneNo" class="form-label">Phone No.</label>
+        <!-- <input type="text" formControlName="phoneNo" class="form-control" id="phoneNo" name="phoneNo"> -->
+        <input type="text" formControlName="phoneNo" class="form-control" id="phoneNo" name="phoneNo" [class.is-invalid]="phoneNo?.invalid" [class.is-valid]="phoneNo?.valid"> 
+       <div class="alert alert-warning" [hidden]="phoneNo?.valid || phoneNo?.untouched">
+          <small *ngIf="phoneNo?.errors?.['required']">
+            Phone No. is required
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <app-select [data]="locations" [title]="'Location'" (selectedData)="addCompanyForm.get('location')?.setValue($event.target.value)"></app-select>
+      </div>
+  
+      <button [disabled]="addCompanyForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+    

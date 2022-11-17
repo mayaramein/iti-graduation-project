@@ -1,36 +1,63 @@
 <div class="fullscreen-center">
-    <div class="signup-container">
-        <h1 class="signup-title">Welcome</h1>
-        <form class="form" [formGroup]="userForm">
-            <!-- <div class="input-group success"> -->
-            <div class="input-group">
-                <label for="username">User Name</label>
-                <input formControlName="username" type="username" name="username" id="username">
-                <!-- <span class="msg">Valid username</span> -->
-            </div>
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input formControlName="email" type="email" name="email" id="email">
-                <!-- <span class="msg">Valid email</span> -->
-            </div>
-            <div class="input-group">
-                <label for="phone">Phone Number</label>
-                <input formControlName="phone" type="phone" name="phone" id="phone">
-                <!-- <span class="msg">Valid phone</span> -->
-            </div>
+  <div class="container">
+    <form [formGroup]="userRegFrm" class="m-3" (ngSubmit)="submit()">
+      <div class="mb-3">
+        <label for="fName" class="form-label">Username</label>
+        <input type="text" formControlName="userName" class="form-control" id="fName" name="userFname" [class.is-invalid]="userName?.invalid" [class.is-valid]="userName?.valid">
+        <div class="alert alert-warning" [hidden]="userName?.valid || userName?.untouched">
+          <small *ngIf="userName?.errors?.['required']">
+            Username is required
+          </small>
+          <small *ngIf="userName?.errors?.['pattern']">
+            Username must be 3 letters at least, <b>{{userName?.errors?.['pattern'].actualValue}}</b> doesn't match.
+          </small>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="uEmail" class="form-label">Email</label>
+        <input type="email" formControlName="email" class="form-control" id="uEmail" name="useremail" [class.is-invalid]="email?.invalid" [class.is-valid]="email?.valid">
+        <div class="alert alert-warning" [hidden]="email?.valid || email?.untouched">
+          <small *ngIf="email?.errors?.['required']">
+            Email is required
+          </small>
+          <small *ngIf="email?.errors?.['email']">
+            Enter email in correct form
+          </small>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="phoneNo" class="form-label">Phone No.</label>
+        <input type="number" formControlName="phoneNo" class="form-control" id="phoneNo" name="userPh" [class.is-invalid]="phoneNo?.invalid" [class.is-valid]="phoneNo?.valid"/>
+        <div class="alert alert-warning" [hidden]="phoneNo?.valid || phoneNo?.untouched">
+          <small *ngIf="phoneNo?.errors?.['required']">
+            Phone No. is required
+          </small>
+        </div>
+      </div>
 
-            <!-- <div class="input-group error"> -->
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input formControlName="password" type="password" name="password" id="password">
-                <!-- <span class="msg">Incorrect password</span> -->
-            </div>
-            <div class="input-group">
-                <label for="Cpassword">Confirm Password</label>
-                <input formControlName="Cpassword" type="password" name="Cpassword" id="Cpassword">
-                <!-- <span class="msg">Incorrect password</span> -->
-            </div>
-            <button type="submit" [disabled]="userForm.invalid || (userForm.value.password != userForm.value.password)" class="signup-button" (click)="submit()">Signup</button>
-        </form>
-    </div>
+      <div class="mb-3">
+        <label for="uPass" class="form-label">Password</label>
+        <input type="password" formControlName="password" class="form-control" id="uPass" name="userPass">
+        <div class="alert alert-warning" *ngIf="password?.errors?.['required'] && password?.touched">
+          Password is required
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="uCPass" class="form-label">Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" class="form-control" id="uCPass" name="usercpass">
+          <div class="alert alert-warning" *ngIf="confirmPassword?.errors?.['required'] && confirmPassword?.touched">
+            Confirm Password is required
+          </div>
+          <div small class="alert alert-warning" *ngIf="userRegFrm?.errors?.['UnmatchedPassword']">
+            Confirm password must match password.
+          </div>
+      </div>
+  
+  
+      <button [disabled]="userRegFrm.invalid" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 </div>

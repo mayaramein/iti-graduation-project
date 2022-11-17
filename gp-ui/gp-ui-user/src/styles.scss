@@ -36,6 +36,10 @@ $gp-ui-user-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($gp-ui-user-theme);
 
+// regular style toast
+@import '~ngx-toastr/toastr';
+
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

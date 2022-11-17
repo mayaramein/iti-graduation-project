@@ -1,0 +1,104 @@
+@use '../../../assets/scss/config/index' as *;
+
+.single_advisor_profile {
+	position: relative;
+	margin-bottom: 50px;
+	-webkit-transition-duration: 500ms;
+	transition-duration: 500ms;
+	z-index: 1;
+	border-radius: 15px;
+	-webkit-box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
+	box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
+	.advisor_thumb {
+		position: relative;
+		z-index: 1;
+		border-radius: 15px 15px 0 0;
+		margin: 0 auto;
+		padding: 30px 30px 0 30px;
+		background-color: $primary-color;
+		overflow: hidden;
+		&::after {
+			-webkit-transition-duration: 500ms;
+			transition-duration: 500ms;
+			position: absolute;
+			width: 150%;
+			height: 80px;
+			bottom: -45px;
+			left: -25%;
+			content: "";
+			background-color: $white-color;
+			-webkit-transform: rotate(-15deg);
+			transform: rotate(-15deg);
+		}
+		.social-info {
+			a {
+				font-size: 14px;
+				color: #020710;
+				padding: 0 5px;
+				z-index: 50;
+				&:last-child {
+					padding-right: 0;
+				}
+			
+			}
+		}
+	}
+	.single_advisor_details_info {
+		position: relative;
+		z-index: 1;
+		padding: 30px;
+		text-align: right;
+		-webkit-transition-duration: 500ms;
+		transition-duration: 500ms;
+		border-radius: 0 0 15px 15px;
+		background-color: $white-color;
+		&::after {
+			-webkit-transition-duration: 500ms;
+			transition-duration: 500ms;
+			position: absolute;
+			z-index: 1;
+			width: 50px;
+			height: 3px;
+			background-color: $secondary-color;
+			content: "";
+			top: 12px;
+			right: 30px;
+		}
+		h6 {
+			margin-bottom: 0.25rem;
+			-webkit-transition-duration: 500ms;
+			transition-duration: 500ms;
+		}
+	}
+}
+
+.single_advisor_profile:hover .advisor_thumb::after,
+.single_advisor_profile:focus .advisor_thumb::after {
+	background-color: $primary-color
+}
+.single_advisor_profile:hover .advisor_thumb .social-info a,
+.single_advisor_profile:focus .advisor_thumb .social-info a {
+	color: $white-color;
+}
+.single_advisor_profile:hover .advisor_thumb .social-info a:hover,
+.single_advisor_profile:hover .advisor_thumb .social-info a:focus,
+.single_advisor_profile:focus .advisor_thumb .social-info a:hover,
+.single_advisor_profile:focus .advisor_thumb .social-info a:focus {
+	color: $white-color;
+}
+.single_advisor_profile:hover .single_advisor_details_info,
+.single_advisor_profile:focus .single_advisor_details_info {
+	background-color: $primary-color
+}
+.single_advisor_profile:hover .single_advisor_details_info::after,
+.single_advisor_profile:focus .single_advisor_details_info::after {
+	background-color: $white-color;
+}
+.single_advisor_profile:hover .single_advisor_details_info h6,
+.single_advisor_profile:focus .single_advisor_details_info h6 {
+	color: $white-color;
+}
+.single_advisor_profile:hover .single_advisor_details_info p,
+.single_advisor_profile:focus .single_advisor_details_info p {
+	color: $white-color;
+}

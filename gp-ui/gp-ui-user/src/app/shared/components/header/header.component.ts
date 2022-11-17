@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,23 +8,23 @@ import { AuthService } from '../../../auth/services/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  isUserLogged:boolean;
+  constructor(private service:AuthService, private router:Router) {
+    this.isUserLogged=this.service.isUserLogged;
+   }
 
-  constructor(private service:AuthService) { }
-  user:any = null;
   ngOnInit(): void {
-    this.service.user.subscribe((res:any) => {
-      if(res.role){
-        this.user = res
-      }
-    })
+    this.service.getloggedStatus().subscribe(status=>{
+      this.isUserLogged=status;
+    });
   }
 
-  logout(){
+  logout()
+  {
     const model={}
-    this.service.login(model).subscribe(res =>{
-      this.user = null
-      this.service.user.next(res)
-    })
+    this.service.logout(model);
+    this.isUserLogged= this.service.isUserLogged;
+    this.router.navigate(['/']);
   }
 
 }

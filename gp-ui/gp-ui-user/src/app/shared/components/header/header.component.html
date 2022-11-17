@@ -1,4 +1,4 @@
-<nav class="navbar container navbar-expand-lg">
+  <nav class="navbar container navbar-expand-lg">
     
       <a class="navbar-brand" href="#"><img style="width: 50px;" src="../../../../assets/imgs/main/logo.png" alt="logo"></a>
     
@@ -7,7 +7,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         
-        <ul class="navbar-nav mb-2 mb-lg-0">
+        <!-- <ul class="navbar-nav mb-2 mb-lg-0">
+          
           <li class="nav-item">
             <a *ngIf="user == null" class="nav-link  primary-color"  routerLink="login"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
           </li>
@@ -23,8 +24,17 @@
           <li class="nav-item">
             <a *ngIf="user != null" class="nav-link primary-color" routerLink="user/details/{{user.id}}"><i class="fa-solid fa-user"></i>{{user?.username}}</a>
           </li>
-        </ul>
-        
+        </ul> -->
+        <div class="navbar-nav ">
+          <a class="nav-link" aria-current="page" routerLink="home" routerLinkActive="active">Home</a>
+          <a class="nav-link" aria-current="page" routerLink="aboutus" routerLinkActive="active">About us</a>
+          <a class="nav-link primary-color" [hidden]="isUserLogged" routerLink="auth/login" routerLinkActive="active"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+          <a class="nav-link primary-color" [hidden]="!isUserLogged" (click)="logout()"><i class="fa-solid fa-right-to-bracket"></i> Logout</a>
+          <a class="nav-link primary-color" [hidden]="isUserLogged" routerLink="auth/register" routerLinkActive="active"><i class="fa-solid fa-user"></i> Register</a>
+          <a class="nav-link primary-color" [hidden]="!isUserLogged" routerLink="user/profile" routerLinkActive="active"><i class="fa-solid fa-user"></i> User Profile</a>
+          <a class="nav-link primary-color" [hidden]="!isUserLogged" routerLink="user/edit-profile" routerLinkActive="active"><i class="fa-solid fa-user"></i> Edit Profile</a>
+          <a class="nav-link btn bg-secondary-color primary-color" routerLink="ads/create-ad" routerLinkActive="active"><i class="fa-solid fa-square-plus"></i> Create ad</a>
+        </div>
       </div>
      
   </nav>

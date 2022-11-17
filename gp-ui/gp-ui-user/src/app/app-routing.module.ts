@@ -2,34 +2,38 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { SharedLayoutComponent } from './shared/components/shared-layout/shared-layout.component';
-import { HomeComponent } from './home/home/home.component';
-import { SigninComponent } from './auth/components/signin/signin.component';
-import { SignupComponent } from './auth/components/signup/signup.component';
-import { AllCompaniesComponent } from './company/components/all-companies/all-companies.component';
-import { CompanyDetailsComponent } from './company/components/company-details/company-details.component';
-import { AllUsersComponent } from './users/components/all-users/all-users.component';
-import { UserDetailsComponent } from './users/components/user-details/user-details.component';
-import { AdDetailsComponent } from './ads/components/ad-details/ad-details.component';
-import { AllAdsComponent } from './ads/components/all-ads/all-ads.component';
-import { AdminComponent } from './home/admin/admin.component';
+import { HomeComponent } from './pages/home/home.component';import { AdminComponent } from './pages/admin/admin.component';
+import { AuthGuard } from './Gaurds/auth.guard';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 const routes: Routes = [ 
-  {path: '', component: SharedLayoutComponent, children:[
+  {path:'', component: SharedLayoutComponent, children:[
     {path:'', redirectTo:'home', pathMatch:'full'},
-    {path:'home', component:HomeComponent},
-    {path:'company', component:AllCompaniesComponent},
-    {path:'company/details', component:CompanyDetailsComponent},
-    {path:'users', component:AllUsersComponent},
-    {path:'user/details/1', component:UserDetailsComponent},
-    {path:'ads', component:AllAdsComponent},
-    {path:'ads/details', component:AdDetailsComponent},
-    {path:'admin-dashboard', component:AdminComponent},
-    {path:'signin', component:SigninComponent},
-    
+    {path:'home', title:"Home", component:HomeComponent },
+    {path:'aboutus', title:"About Us", component:AboutUsComponent },
+    {path:'admin-dashboard', title:"Admin Dashboard", component:AdminComponent , canActivate:[AuthGuard]},
+    {
+      path: 'user',
+      loadChildren: () => import('./users/users/users.module')
+                            .then(m=>m.UsersModule)
+    },
+    {
+      path: 'ads',
+      loadChildren: () => import('./ads/ads/ads.module')
+                            .then(m=>m.AdsModule)
+    },
+    {
+      path: 'company',
+      loadChildren: () => import('./company/company/company.module')
+                            .then(m=>m.CompanyModule)
+    },
   ]},
-  {path:'login', component:SigninComponent},
-  {path:'register', component:SignupComponent},
-  {path:'**', component:NotFoundComponent}
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth/auth.module')
+                          .then(m=>m.AuthModule)
+  },
+  {path:'**', title:"Not Found 404", component:NotFoundComponent}
   ];
 
 @NgModule({

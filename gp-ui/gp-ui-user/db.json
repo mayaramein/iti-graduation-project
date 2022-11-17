@@ -5,11 +5,102 @@
       "email": "admin@gmail.com",
       "password": "0000",
       "id": 0
+    },
+    {
+      "userName": "fdfd",
+      "email": "dsffs@fgff",
+      "phoneNo": 323234,
+      "password": "123",
+      "confirmPassword": "123",
+      "id": 1
+    },
+    {
+      "userName": "efrffrefr",
+      "email": "efefe@ggf",
+      "phoneNo": 34,
+      "password": "12",
+      "confirmPassword": "12",
+      "id": 2
     }
   ],
   "login": [
     {
+      "username": "admin",
+      "role": true,
       "id": 1
     }
+  ],
+  "ads": [
+    {
+      "adname": "rrtrtrtretert",
+      "shortDesc": "tertertrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+      "price": 434,
+      "type": "tertrett",
+      "city": "43",
+      "noOfRooms": 44,
+      "noOfBathrooms": 44,
+      "FloorNumber": 43,
+      "state": false,
+      "id": 1
+    }
+  ],
+  "company": [
+    {
+      "name": "ghgg",
+      "file": "C:\\fakepath\\youtube.png",
+      "phoneNo": "jhgj",
+      "location": "القاهرة",
+      "id": 1
+    },
+    {
+      "name": "ghgg",
+      "file": "C:\\fakepath\\youtube.png",
+      "phoneNo": "jhgj",
+      "location": "القاهرة",
+      "id": 2
+    },
+    {
+      "name": "ghgg",
+      "file": "C:\\fakepath\\youtube.png",
+      "phoneNo": "dgdfgd",
+      "location": "الشرقية",
+      "id": 3
+    },
+    {
+      "name": "eteterte",
+      "file": "C:\\fakepath\\youtube.png",
+      "phoneNo": "32432432",
+      "location": "البحيرة",
+      "id": 4
+    }
+  ],
+  "locations": [
+    "القاهرة",
+    "الغربية",
+    "الإسكندرية",
+    "الإسماعيلية",
+    "كفر الشيخ",
+    "أسوان",
+    "أسيوط",
+    "الأقصر",
+    "الوادي الجديد",
+    "شمال سيناء",
+    "البحيرة",
+    "بني سويف",
+    "بورسعيد",
+    "البحر الأحمر",
+    "الجيزة",
+    "الدقهلية",
+    "جنوب سيناء",
+    "دمياط",
+    "سوهاج",
+    "السويس",
+    "الشرقية",
+    "الفيوم",
+    "القليوبية",
+    "قنا",
+    "مطروح",
+    "المنوفية",
+    "المنيا"
   ]
 }
