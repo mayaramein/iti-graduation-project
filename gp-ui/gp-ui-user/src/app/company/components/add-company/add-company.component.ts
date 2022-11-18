@@ -14,6 +14,7 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 export class AddCompanyComponent implements OnInit {
 
   image:any = ''
+  date: Date = new Date();
   seletedLocation:string = ''
   addCompanyForm!: FormGroup ;
   newCompany: ICompany= {} as ICompany;
@@ -28,6 +29,7 @@ export class AddCompanyComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLocations();
+    // this.getAllCompanies();
     this.createForm();
   }
 
@@ -76,24 +78,24 @@ export class AddCompanyComponent implements OnInit {
     }
   }
 
-  getAllCompanies(){
-    this.service.getAllCompanies().subscribe((res:any) => {
-      this.AllCompanies = res;
-    })
-  }
+  // getAllCompanies(){
+  //   this.service.getAllCompanies().subscribe((res:any) => {
+  //     this.AllCompanies = res;
+  //   })
+  // }
 
   submit() {
     console.log(this.AllCompanies)
-    // let index = this.AllCompanies.findIndex(item => item.name == this.addCompanyForm.value.name)
-    // if(index != -1)  {
-    //   this.toastr.error("Company has already exists", "" , {
-    //     disableTimeOut: false,
-    //     titleClass: "toastr_title",
-    //     messageClass: "toastr_message",
-    //     timeOut:5000,
-    //     closeButton: true,
-    //   })
-    // }else {
+    let index = this.AllCompanies.findIndex(item => item.name == this.addCompanyForm.value.name)
+    if(index != -1)  {
+      this.toastr.error("Company has already exists", "" , {
+        disableTimeOut: false,
+        titleClass: "toastr_title",
+        messageClass: "toastr_message",
+        timeOut:5000,
+        closeButton: true,
+      })
+    }else {
     let companyModel: ICompany = this.addCompanyForm.value as ICompany;
     console.log(companyModel)
     this.service.companyCreation(companyModel).subscribe(res => {
@@ -106,7 +108,7 @@ export class AddCompanyComponent implements OnInit {
       })
     });
     this.router.navigate(['company']);
-  // }
+  }
     
   }
 

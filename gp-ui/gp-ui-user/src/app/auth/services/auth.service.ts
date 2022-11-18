@@ -16,21 +16,20 @@ export class AuthService {
   user = new Subject()
   
   createUser(model:any) {
-    this.setusrToken();
-    return this.http.post(environment.ApiUrl+'users' , model)
+    return this.http.post(environment.securityApiUrl+'Register' , model)
   }
 
   getUsers(){
     return this.http.get(environment.ApiUrl+'users')
   }
 
-  setusrToken(){
-    let usrToken='123456789';
-    localStorage.setItem("token", usrToken);
-    this.isloggedSubject.next(true);
-  }
+  // setusrToken(){
+  //   let usrToken='123456789';
+  //   localStorage.setItem("token", usrToken);
+  //   this.isloggedSubject.next(true);
+  // }
   login(model:any) {
-    this.setusrToken();
+    // this.setusrToken();
     return this.http.put(environment.ApiUrl+'login/1' , model)
   }
 

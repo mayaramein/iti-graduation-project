@@ -5,7 +5,12 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:4200/',
-  ApiUrl: 'http://localhost:3000/'
+  ApiUrl: 'http://localhost:3000/',
+  securityApiUrl: 'https://localhost:7248/api/',
+  companyApiUrl: 'https://localhost:7248/api/Company',
+  advertisementApiUrl: 'https://localhost:7248/api/Advertisement',
+  chatApiUrl: 'https://localhost:7248/api/Chat',
+  userApiUrl: 'https://localhost:7248/api/User',
 
 };
 

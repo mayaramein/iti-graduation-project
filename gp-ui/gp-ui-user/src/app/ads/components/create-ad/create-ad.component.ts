@@ -14,6 +14,7 @@ import { AdsServiceService } from '../../services/ads-service.service';
 export class CreateAdComponent implements OnInit {
 
   image:string =''
+  createdDate: Date = new Date();
   createAdForm!: FormGroup ;
   setState:string[] =[]
   newAd: IAds= {} as IAds;

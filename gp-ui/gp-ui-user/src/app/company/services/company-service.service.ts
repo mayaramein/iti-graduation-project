@@ -38,18 +38,12 @@ export class CompanyServiceService {
   }
   
 
-  // addCompany(newAd: ICompany): {
-  //   // addCompany(newAd: ICompany): Observable<ICompany> {
-  //   // return this.http
-  //   // .post<ICompany>(`${environment.ApiUrl}company`, JSON.stringify(newAd), this.httpOption)
-  //   // .pipe(
-  //   //   retry(2),
-  //   //   catchError(this.handleError)
-  //   // );
-
-  // }
   getAllCompanies(){
     return this.http.get(environment.ApiUrl+'company') 
+  }
+
+  getAllCompaniesById(id:any){
+    return this.http.get(environment.ApiUrl+'company'+{id}) 
   }
 
   companyCreation(company: ICompany): Observable<ICompany>{
@@ -64,6 +58,8 @@ export class CompanyServiceService {
   }
 
 
-  
+  deleteCompany(id:any){
+    return this.http.delete(environment.ApiUrl+'company'+{id}) 
+  }
   
 }

@@ -11,5 +11,5 @@ export interface IAds {
   FloorNumber:number;
   state:boolean;
   image:string;
-  // date: new Date();
+  date: any;
 }

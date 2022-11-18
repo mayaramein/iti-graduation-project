@@ -1,1 +1,12 @@
-<p>single-company works!</p>
+
+    <div class="card">
+        <h5 class="card-header">Comapany Name</h5>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a name="" id="" class="btn btn-success" [routerLink]="['company/company-details', company.id]" role="button">Kno more</a>
+          <a name="" id="" class="btn btn-success" [routerLink]="['company/edit-company', company.id]" role="button">Edit company details</a>
+          <a name="" id="" class="btn btn-success" (click)="deleteCompany(company.id)" role="button">Delete company</a>
+        </div>
+      </div>
