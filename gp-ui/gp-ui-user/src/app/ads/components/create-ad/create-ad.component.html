@@ -1,4 +1,4 @@
-<div class="fullscreen-center m-3 h-auto">
+<!-- <div class="fullscreen-center m-3 h-auto">
   <div class="container">
     <form [formGroup]="createAdForm" class="m-3" (ngSubmit)="submit()">
 
@@ -119,8 +119,138 @@
 
       </div>
 
-      <!-- <button [disabled]="createAdForm.invalid" type="submit" class="btn btn-primary">Submit</button> -->
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button [disabled]="createAdForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div> -->
+
+<div class="fullscreen-center m-3 h-auto">
+  <div class="container">
+    <form [formGroup]="createAdForm" class="m-3" (ngSubmit)="submit()">
+
+      <!-- <div class="mb-3">
+        <label for="title" class="form-label">Ad title</label>
+        <input type="text" formControlName="title" class="form-control" id="title" title="title"
+          [class.is-invalid]="title?.invalid" [class.is-valid]="title?.valid">
+        <div class="alert alert-warning" [hidden]="title?.valid || title?.untouched">
+          <small *ngIf="title?.errors?.['required']">
+            Ad title is required
+          </small>
+        </div>
+      </div> -->
+
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <textarea class="form-control" formControlName="description" id="exampleFormControlTextarea1" title="description"
+          rows="5" [class.is-invalid]="description?.invalid" [class.is-valid]="description?.valid"></textarea>
+        <div class="alert alert-warning" [hidden]="description?.valid || description?.untouched">
+          <small *ngIf="description?.errors?.['required']">
+            Description is required
+          </small>
+          <small *ngIf="description?.errors?.['pattern']">
+            Description must be 50 letters at least, <b>{{description?.errors?.['pattern'].actualValue}}</b> doesn't
+            match.
+          </small>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="type" class="form-label">Property Type</label>
+        <input type="text" formControlName="type" class="form-control" id="type" title="type"
+          [class.is-invalid]="type?.invalid" [class.is-valid]="type?.valid">
+        <div class="alert alert-warning" [hidden]="type?.valid || type?.untouched">
+          <small *ngIf="type?.errors?.['required']">
+            Property type is required
+          </small>
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="price" class="form-label">Property Price</label>
+        <input type="number" formControlName="price" class="form-control" id="price" title="price"
+          [class.is-invalid]="price?.invalid" [class.is-valid]="price?.valid">
+        <div class="alert alert-warning" [hidden]="price?.valid || price?.untouched">
+          <small *ngIf="price?.errors?.['required']">
+            Price is required
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <app-select [data]="locations" [title]="'Location'"
+          (selectedData)="createAdForm.get('place')?.setValue($event.target.value)"></app-select>
+      </div>
+
+      <div class="mb-3">
+        <label for="city" class="form-label">Property City</label>
+        <input type="text" formControlName="city" class="form-control" id="city" title="shortDesc"
+          [class.is-invalid]="city?.invalid" [class.is-valid]="city?.valid">
+        <div class="alert alert-warning" [hidden]="city?.valid || city?.untouched">
+          <small *ngIf="city?.errors?.['required']">
+            City is required
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="no_Of_Rooms" class="form-label">Property number of rooms</label>
+        <input type="number" formControlName="no_Of_Rooms" class="form-control" id="no_Of_Rooms" title="no_Of_Rooms"
+          [class.is-invalid]="no_Of_Rooms?.invalid" [class.is-valid]="no_Of_Rooms?.valid">
+        <div class="alert alert-warning" [hidden]="no_Of_Rooms?.valid || no_Of_Rooms?.untouched">
+          <small *ngIf="no_Of_Rooms?.errors?.['required']">
+            Number of rooms is required
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="no_Of_Bathrooms" class="form-label">Property number of bathrooms</label>
+        <input type="number" formControlName="no_Of_Bathrooms" class="form-control" id="no_Of_Bathrooms"
+          title="no_Of_Bathrooms" [class.is-invalid]="no_Of_Bathrooms?.invalid" [class.is-valid]="no_Of_Bathrooms?.valid">
+        <div class="alert alert-warning" [hidden]="no_Of_Bathrooms?.valid || no_Of_Bathrooms?.untouched">
+          <small *ngIf="no_Of_Bathrooms?.errors?.['required']">
+            Number of bathrooms is required
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="floor_Number" class="form-label">Property floor number</label>
+        <input type="number" formControlName="floor_Number" class="form-control" id="floor_Number" title="floor_Number"
+          [class.is-invalid]="floor_Number?.invalid" [class.is-valid]="floor_Number?.valid">
+        <div class="alert alert-warning" [hidden]="floor_Number?.valid || floor_Number?.untouched">
+          <small *ngIf="floor_Number?.errors?.['required']">
+            Floor number is required
+          </small>
+        </div>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <label class="form-check-label" for="isFurnished">Is property furnished?</label>
+        <input class="form-check-input" type="checkbox" formControlName="isFurnished" id="isFurnished" checked title="isFurnished"
+          [class.is-invalid]="isFurnished?.invalid" [class.is-valid]="isFurnished?.valid">
+        <div class="alert alert-warning" [hidden]="isFurnished?.valid || isFurnished?.untouched">
+          <small *ngIf="isFurnished?.errors?.['required']">
+            Furnished state is required
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-group">
+          <label for="image">File:</label>
+          <input 
+              formControlName="imgUrl"
+              id="image" 
+              type="file" 
+              class="form-control"
+              (change)="onFileChange($event)">
+      </div>
+        
+      <img [src]="image" class="img-fluid m-3" alt="company-img" *ngIf="image" style="height: 150px; width:150px">
+          
+      </div>
+
+      <button [disabled]="createAdForm.invalid" type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
 </div>

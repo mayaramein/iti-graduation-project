@@ -1,8 +1,12 @@
-<div class="card mb-3">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
+<div class="card m-3">
+  <img class="card-img-top img-fluid" style="height: 180px; width:100%" src="https://picsum.photos/seed/picsum/200/300" alt="Card image cap">
+<div class="card-body">
+  <span class="badge bg-secondary-color">{{ad.type}}</span>
+  <h5 class="card-title">{{ad.title}}</h5>
+  <p class="card-text"><small class="primary-color p-3"><i class="fa-solid fa-money-bill-1-wave p-3"></i>Price:</small>{{ad.price}}</p>
+  
+  <br>
+  <a name="" id="" class="btn bg-secondary-color primary-color m-3" [routerLink]="['company/edit-company', ad.id]" role="button">Edit ad details</a>
+  <button name="" id="" class="btn bg-secondary-color primary-color " (click)="Delete(ad.id)" role="button">Delete ad</button>
+</div>
+</div>

@@ -1,1 +1,28 @@
+<!-- <div *ngIf="company"> -->
+    <!-- <div>
+      Name:
+      <input [(ngModel)]="company.name" placeholder="Name" />
+    </div> -->
+    <!-- <div>
+      First Name:
+      <input [(ngModel)]="company.firstName" placeholder="First Name" />
+    </div>
+    <div>
+      Last Name:
+      <input [(ngModel)]="company.lastName" placeholder="Last Name" />
+    </div> -->
+    
+    <!-- <div class="mb-3">
+        <app-select [data]="locations" [title]="'Location'" (selectedData)="addCompanyForm.get('location')?.setValue($event.target.value)"></app-select>
+      </div> -->
 
+    <!-- <button (click)="updatecompany(company)" *ngIf="company.id">Save</button>
+    <button (click)="deletecompany(company)" *ngIf="company.id">Delete</button>
+    <button (click)="createcompany(company)" *ngIf="!company.id">Create</button> -->
+  <!-- </div> -->
+  <input type="text"  class="form-control" [(ngModel)]="Scompany.companyName">
+  <input type="text"  class="form-control" [(ngModel)]="Scompany.companyImage">
+  <input type="text"  class="form-control" [(ngModel)]="Scompany.companyPhoneNumber">
+  <input type="text"  class="form-control" [(ngModel)]="Scompany.companylocation">
+
+  <button (click)="Save()">Save</button> 

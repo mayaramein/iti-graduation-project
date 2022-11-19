@@ -1,12 +1,11 @@
-
-    <div class="card">
-        <h5 class="card-header">Comapany Name</h5>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-          <a name="" id="" class="btn btn-success" [routerLink]="['company/company-details', company.id]" role="button">Kno more</a>
-          <a name="" id="" class="btn btn-success" [routerLink]="['company/edit-company', company.id]" role="button">Edit company details</a>
-          <a name="" id="" class="btn btn-success" (click)="deleteCompany(company.id)" role="button">Delete company</a>
-        </div>
-      </div>
+<div class="card m-3">
+    <img class="card-img-top img-fluid" style="height: 180px; width:100%" src="https://picsum.photos/seed/picsum/200/300" alt="Card image cap">
+<div class="card-body">
+    <h5 class="card-title">{{company.companyName}}</h5>
+    <!-- <h5 class="card-title">{{company.id}}</h5> -->
+    <p class="card-text"><small class="primary-color p-3"><i class="fa-solid fa-location-dot p-3"></i>Location:</small>{{company.companylocation}}</p>
+    <p class="card-text"><small class="primary-color p-3"><i class="fa-solid fa-phone p-3"></i>Contact:</small>{{company.companyPhoneNumber}}</p>
+    <a name="" id="" class="btn bg-secondary-color primary-color m-3" [routerLink]="['/company','edit-company', company.companyId]" role="button">Edit company details</a>
+    <button name="" id="" class="btn bg-secondary-color primary-color " (click)="Delete(company.companyId)" role="button">Delete company</button>
+  </div>
+</div>

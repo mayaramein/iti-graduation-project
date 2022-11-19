@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './pages/admin/admin.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FilterComponent } from './filters/filter.component';
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     SliderComponent,
     AdminComponent,
     AboutUsComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     SharedModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,6 +5,7 @@ import { CompanyServiceService } from '../../services/company-service.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import { Company } from 'src/app/Models/company';
 
 @Component({
   selector: 'app-add-company',
@@ -17,10 +18,13 @@ export class AddCompanyComponent implements OnInit {
   date: Date = new Date();
   seletedLocation:string = ''
   addCompanyForm!: FormGroup ;
-  newCompany: ICompany= {} as ICompany;
+  newCompany: Company= {} as Company;
   locations:any[] = [];
-  AllCompanies: ICompany[] =[];
-  
+  AllCompanies: Company[] =[];
+  Scompany: ICompany = new ICompany(
+
+    "","",0,"",[]
+  )
   constructor(private service:CompanyServiceService
             , private sharedService:SharedService
             , private fb: FormBuilder
@@ -29,7 +33,7 @@ export class AddCompanyComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLocations();
-    // this.getAllCompanies();
+    this.getAllCompanies();
     this.createForm();
   }
 
@@ -43,19 +47,19 @@ export class AddCompanyComponent implements OnInit {
   
   createForm() {
       this.addCompanyForm = this.fb.group({
-      name: ['', [Validators.required, Validators.pattern('[A-Za-z]{4,}')]],
-      file: ['', [Validators.required]],
-      phoneNo: ['', [Validators.required]],
-      location: ['', [Validators.required]],
+        companyName: ['', [Validators.required, Validators.pattern('[A-Za-z]{4,}')]],
+        companyImage: ['', [Validators.required]],
+        companyPhoneNumber: ['', [Validators.required]],
+        companylocation: ['', [Validators.required]],
     });
     }
 
-  get name() {
-    return this.addCompanyForm.get('name');
+  get companyName() {
+    return this.addCompanyForm.get('companyName');
   }
 
-  get phoneNo() {
-    return this.addCompanyForm.get('phoneNo');
+  get companyPhoneNumber() {
+    return this.addCompanyForm.get('companyPhoneNumber');
   }
 
   onFileChange(event:any) {
@@ -77,40 +81,51 @@ export class AddCompanyComponent implements OnInit {
    
     }
   }
+  Save(){
+    console.log(this.Scompany)
+    this.service.createCompany(this.Scompany).subscribe();
+    this.router.navigateByUrl('/company')
+  }
 
-  // getAllCompanies(){
-  //   this.service.getAllCompanies().subscribe((res:any) => {
-  //     this.AllCompanies = res;
-  //   })
+  getAllCompanies(){
+    this.service.getCompanies().subscribe((res:any) => {
+      this.AllCompanies = res;
+    })
+  }
+
+  // submit() {
+  //   console.log(this.AllCompanies)
+  //   console.log(this.addCompanyForm.value)
+  //   let nCompany = this.addCompanyForm.value as Company;
+  //   console.log(nCompany)
+  //   let index = this.AllCompanies.findIndex(item => item.companyName == this.addCompanyForm.value.companyName)
+  //   if(index != -1)  {
+  //     this.toastr.error("Company has already exists", "" , {
+  //       disableTimeOut: false,
+  //       titleClass: "toastr_title",
+  //       messageClass: "toastr_message",
+  //       timeOut:5000,
+  //       closeButton: true,
+  //     })
+  //   }else {
+  //   // let companyModel: ICompany = this.addCompanyForm.value as ICompany;
+  //   // console.log(companyModel)
+  //   this.service.createCompany(nCompany).subscribe();
+  //   this.service.createFlag=!this.service.createFlag;
+  
+  //   // this.service.companyCreation(companyModel).subscribe(res => {
+  //   //   this.toastr.success("Company added successfully", "" , {
+  //   //     disableTimeOut: false,
+  //   //     titleClass: "toastr_title",
+  //   //     messageClass: "toastr_message",
+  //   //     timeOut:5000,
+  //   //     closeButton: true,
+  //   //   })
+  //   // });
+  //   this.router.navigate(['company']);
   // }
-
-  submit() {
-    console.log(this.AllCompanies)
-    let index = this.AllCompanies.findIndex(item => item.name == this.addCompanyForm.value.name)
-    if(index != -1)  {
-      this.toastr.error("Company has already exists", "" , {
-        disableTimeOut: false,
-        titleClass: "toastr_title",
-        messageClass: "toastr_message",
-        timeOut:5000,
-        closeButton: true,
-      })
-    }else {
-    let companyModel: ICompany = this.addCompanyForm.value as ICompany;
-    console.log(companyModel)
-    this.service.companyCreation(companyModel).subscribe(res => {
-      this.toastr.success("Company added successfully", "" , {
-        disableTimeOut: false,
-        titleClass: "toastr_title",
-        messageClass: "toastr_message",
-        timeOut:5000,
-        closeButton: true,
-      })
-    });
-    this.router.navigate(['company']);
-  }
     
-  }
+  // }
 
   
 

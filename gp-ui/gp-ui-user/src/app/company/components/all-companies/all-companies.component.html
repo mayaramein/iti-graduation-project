@@ -1,6 +1,8 @@
+<h1 class="">All Companies</h1>
+
 <div class="container pt-4 pb-4">
-    <div class="row grid">
-        <div class="col" [ngClass]="{'d-none d-md-block': cardIndex !== 0}"
+    <div class="d-flex flex-column">
+        <div class="" [ngClass]="{'d-none d-md-block': cardIndex !== 0}"
              *ngFor="let company of AllCompanies; let cardIndex = index">
           <app-single-company  [company]="company"></app-single-company>
         </div>

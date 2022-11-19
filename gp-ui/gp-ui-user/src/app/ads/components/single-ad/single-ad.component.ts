@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Ads } from '../../../Models/ads';
+import { AdsServiceService } from '../../services/ads-service.service';
 
 @Component({
   selector: 'app-single-ad',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingleAdComponent implements OnInit {
 
-  constructor() { }
+  
+  @Input() ad: any ={};
+  ads:Ads[]=[];
+  constructor(private service: AdsServiceService) { }
 
   ngOnInit(): void {
+  }
+
+  Delete(id:number){
+    if(confirm("Are you sure?")==true)
+    this.service.DeleteAdsById(id).subscribe(
+      ()=>{
+        this.service.getAllDepartments().subscribe(d=>{
+          this.ads=d;
+        })
+      }
+    );
   }
 
 }

@@ -14,7 +14,8 @@ const routes: Routes =[
   {path:'', redirectTo: 'ads/all-ads', pathMatch:'full'},
   {path:'all-ads', title:"All Ads", component: AllAdsComponent},
   {path: 'ad-details/:pid', title:"Ad Details", component:AdDetailsComponent},
-  {path: 'create-ad', title:"Create Ad", component:CreateAdComponent, canActivate: [AuthGuard]},
+  {path: 'create-ad', title:"Create Ad", component:CreateAdComponent},
+  // {path: 'create-ad', title:"Create Ad", component:CreateAdComponent, canActivate: [AuthGuard]},
   {path: 'edit-ad/:pid', title:"Edit Ad", component:EditAdsComponent, canActivate: [AuthGuard]}
 ]
 

@@ -30,6 +30,15 @@
       "id": 1
     }
   ],
+  "Register": [
+    {
+      "userName": "fdggf",
+      "email": "eregregr@ffer",
+      "password": "121212",
+      "confirmPassword": "121212",
+      "id": 1
+    }
+  ],
   "ads": [
     {
       "adname": "rrtrtrtretert",

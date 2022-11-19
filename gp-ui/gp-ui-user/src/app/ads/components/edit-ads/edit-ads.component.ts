@@ -92,7 +92,7 @@ export class EditAdsComponent implements OnInit {
 
   
 
-  submit() {
+  // submit() {
     // let index = this.AllCompanies.findIndex(item => item.name == this.createAdForm.value.name)
     // if(index != -1)  {
     //   this.toastr.error("Company has already exists", "" , {
@@ -103,20 +103,20 @@ export class EditAdsComponent implements OnInit {
     //     closeButton: true,
     //   })
     // }else {
-    let adModel: IAds = this.createAdForm.value as IAds;
-    console.log(adModel)
-    this.service.adCreation(adModel).subscribe(res => {
-      this.toastr.success("Ad Created successfully", "" , {
-        disableTimeOut: false,
-        titleClass: "toastr_title",
-        messageClass: "toastr_message",
-        timeOut:5000,
-        closeButton: true,
-      })
-    });
-    this.router.navigate(['ads']);
+    // let adModel: IAds = this.createAdForm.value as IAds;
+    // console.log(adModel)
+    // this.service.adCreation(adModel).subscribe(res => {
+    //   this.toastr.success("Ad Created successfully", "" , {
+    //     disableTimeOut: false,
+    //     titleClass: "toastr_title",
+    //     messageClass: "toastr_message",
+    //     timeOut:5000,
+    //     closeButton: true,
+    //   })
+    // });
+    // this.router.navigate(['ads']);
   // }
     
-  }
+  // }
 
 }

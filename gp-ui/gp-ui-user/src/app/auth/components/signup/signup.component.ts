@@ -35,7 +35,7 @@ export class SignupComponent implements OnInit {
     this.userRegFrm = this.fb.group({
     userName: ['', [Validators.required, Validators.pattern('[A-Za-z]{3,}')]],
     email: ['', [Validators.required, Validators.email]],
-    phoneNo: ['', [Validators.required]],
+    // phoneNo: ['', [Validators.required]],
     password: ['', [Validators.required]],
     confirmPassword: ['', [Validators.required]],
   }, {validators: passwordMatch});
@@ -49,9 +49,9 @@ export class SignupComponent implements OnInit {
     return this.userRegFrm.get('email');
   }
 
-  get phoneNo() {
-    return this.userRegFrm.get('phoneNo');
-  }
+  // get phoneNo() {
+  //   return this.userRegFrm.get('phoneNo');
+  // }
 
   get password() {
     return this.userRegFrm.get('password');

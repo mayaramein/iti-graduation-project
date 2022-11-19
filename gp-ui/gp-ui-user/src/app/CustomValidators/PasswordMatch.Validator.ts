@@ -1,9 +1,5 @@
-// Cross-field custom validator
-//https://angular.io/guide/form-validation#cross-field-validation
-
 import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
-// If validator has no parameters
 export const passwordMatch: ValidatorFn =
   (frmGroup: AbstractControl): ValidationErrors | null => {
     let passControl= frmGroup.get('password');
@@ -17,10 +13,8 @@ export const passwordMatch: ValidatorFn =
 
 
 
-// If validator has parameters
-export function passwordMatchAdv(complexPassword: boolean=false): ValidatorFn
+export function passwordMatchAdv(): ValidatorFn
 {
-  //If complextPassword?, check fullname not included in password
   return (control: AbstractControl) : ValidationErrors | null=>{
     let passControl= control.get('password');
     let confirmPassControl= control.get('confirmPassword');

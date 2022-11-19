@@ -1,0 +1,66 @@
+
+<div class="container mt-5">
+    <div class="row custom-wrapper">
+      <h2 class="mb-3 text-center">Search for a property</h2>
+  
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="col-3">
+  
+        <div class="d-grid">
+          <select class="custom-select mb-3 form-control" (change)="changeType($event)" formControlName="typeName" >
+            <option disabled value="">Choose Property Type</option>
+            <option *ngFor="let type of Type" [ngValue]="Type">
+              {{ type }}
+            </option>
+          </select>
+  
+  
+          <!-- error block -->
+          <div class="invalid-feedback" *ngIf="isSubmitted && typeName?.invalid">
+            <sup>*</sup>Please provide Type
+          </div>
+        </div>
+
+        <!------------------------------- End of type--------------------------------------------->
+
+        <div class="d-grid">
+            <select class="custom-select mb-3 form-control" (change)="changeCity($event)" formControlName="cityName" >
+              <option disabled value="">Choose Property Type</option>
+              <option *ngFor="let city of City" [ngValue]="City">
+                {{ city }}
+              </option>
+            </select>
+    
+    
+            <!-- error block -->
+            <div class="invalid-feedback" *ngIf="isSubmitted && cityName?.invalid">
+              <sup>*</sup>Please provide city name
+            </div>
+          </div>
+
+
+        <!------------------------------- End of city--------------------------------------------->
+
+          <div class="d-grid">
+            <select class="custom-select mb-3 form-control" (change)="changeRoomsNumber($event)" formControlName="roomsNumber">
+              <option disabled value="">Choose Rooms Number</option>
+              <option *ngFor="let roomsNumber of RoomsNumber" [ngValue]="roomsNumber">
+                {{ roomsNumber }}
+              </option>
+            </select>
+    
+    
+            <!-- error block -->
+            <div class="invalid-feedback" *ngIf="isSubmitted && roomsNumber?.invalid">
+              <sup>*</sup>Please provide rooms number
+            </div>
+            <button type="submit" class="btn btn-danger btn-lg btn-block">
+              Submit
+            </button>
+    
+          </div>
+      </form>
+    </div>
+  </div>
+
+
+  

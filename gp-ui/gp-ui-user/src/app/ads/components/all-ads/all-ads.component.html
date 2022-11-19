@@ -1,1 +1,10 @@
-<p>all-ads works!</p>
+<h1 class="">All Ads</h1>
+
+<div class="container pt-4 pb-4">
+    <div class="d-flex flex-column">
+        <div class="" [ngClass]="{'d-none d-md-block': cardIndex !== 0}"
+             *ngFor="let ad of AllAds; let cardIndex = index">
+          <app-single-ad  [ad]="ad"></app-single-ad>
+        </div>
+      </div>
+  </div>

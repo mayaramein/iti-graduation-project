@@ -1,8 +1,9 @@
 export interface IUser {
-  fullName: string;
+  username: string;
   email: string;
-  phoneNo: string;
+  // phoneNo: string;
   password: string;
-  ımage?: string;
-  listof_ads?: number;
+  confirmPassword: string;
+  // ımage?: string;
+  // listof_ads?: number;
 }

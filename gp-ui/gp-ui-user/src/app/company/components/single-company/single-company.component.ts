@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Company } from 'src/app/Models/company';
 import { CompanyServiceService } from '../../services/company-service.service';
 
 @Component({
@@ -9,13 +11,32 @@ import { CompanyServiceService } from '../../services/company-service.service';
 export class SingleCompanyComponent implements OnInit {
 
   @Input() company: any ={};
-  constructor(private service:CompanyServiceService) { }
+  companies:Company[]=[];
+  Scompany: Company = new Company(
+
+    "","","",0,"",[]
+  )
+  constructor(private service:CompanyServiceService
+    , private router:Router
+    , private acR: ActivatedRoute) { }
 
   ngOnInit(): void {
+    
   }
 
-  deleteCompany(company: any){
-    // this.service.deleteCompany(company)
-  }
 
+  Delete(id:string){
+    console.log(id)
+    if(confirm("Are you sure?")==true)
+    this.service.DeleteCompanyById(id).subscribe(
+      a => {
+        this.service.getCompanies().subscribe((d:any)=>{
+          this.companies=d;
+        })
+        this.router.navigateByUrl('/company');
+        // this.router.navigateByUrl('/company/all-companies');
+      }
+    );
+
+  }
 }
