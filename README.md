@@ -26,9 +26,10 @@
 
 ## Details
 
-> 
+> Real estate website for renting and selling between individuals and companies. 
+> Designed in Figma for UI/UX, Implemented using Angular14 and ASP .NET Core Web API.
 
-> 
+
 <div align="center">
 
 
