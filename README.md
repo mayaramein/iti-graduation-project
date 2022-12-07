@@ -52,22 +52,3 @@
 
 
 
----
-
-## Contact
-
-<div align="center">
-  <a href="https://imgur.com/6gms29J"><img src="https://i.imgur.com/6gms29J.png" title="source: imgur.com" width=150  /></a>
- 
-  ![](https://img.shields.io/badge/Software_Engineer-ffc53b?style=flat)  ![](https://img.shields.io/badge/Full_Stack_Web_Developer-ffc53b?style=flat)  ![](https://img.shields.io/badge/Front_End_UI_developer-ffc53b?style=flat)
-
-
-  [![](https://img.shields.io/badge/Microsoft_Outlook-5333ed?style=for-the-badge&logo=microsoft-outlook&logoColor=white)](mailto:mayaramein@outlook.com) [![](https://img.shields.io/badge/website-5333ed?style=for-the-badge&logo=About.me&logoColor=white)](https://github.com/mayaramein)
-[![](https://img.shields.io/badge/LinkedIn-5333ed?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mayaramein) 
-
-
-</div>
-<p align="right"><a href="#readme-top"><img src="https://uxwing.com/wp-content/themes/uxwing/download/arrow-direction/angle-circle-arrow-up-icon.svg"  width=40   /></a></p>
-
-
-
